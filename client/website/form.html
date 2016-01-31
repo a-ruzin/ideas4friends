@@ -1,0 +1,72 @@
+<template name="image_add_form">
+
+    <div class="modal fade" id="image_add_form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="js-add-image">
+                        <div class="form-group">
+                            <label for="img_src">Image URL:</label>
+                            <input type="text" class="form-control" id="img_src" placeholder="url" name="img_src"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="img_alt">Image description:</label>
+                            <textarea class="form-control" id="img_alt" placeholder="Describe the image here"
+                                      name="img_alt"></textarea>
+                        </div>
+                        <button class="btn btn-success">save</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" data-dismiss="modal">cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="website_form">
+    {{#if currentUser}}
+        <div class="modal fade" id="add-website-dialog">
+            <div class="modal-dialog">
+                <form class="js-save-website-form">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">
+                                New Website
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="url">Site address</label>
+                                <input type="text" class="form-control" id="url" placeholder="http://www.mysite.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Mysite">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description"
+                                          placeholder="I found this site really useful for ..."></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="pull-left">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button class="btn btn-default" data-dismiss="modal">cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {{/if}}
+</template>

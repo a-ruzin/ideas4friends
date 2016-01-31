@@ -1,4 +1,8 @@
 /* CSS declarations go here */
-.hidden_div{
-	display:none;
+.hidden_div {
+    display: none;
+}
+
+li:hover {
+    background-color: #f7f7f7;
 }

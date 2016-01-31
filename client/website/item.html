@@ -1,0 +1,59 @@
+<!-- template that displays individual website entries -->
+<template name="website_item">
+    <li>
+        {{#if currentUser}}
+            {{> voting_buttons}}
+        {{/if}}
+        <h4><a href="{{url}}">{{title}}</a></h4>
+        <p>
+            {{description}} <a href="/website/{{_id}}">more...</a>
+        </p>
+    </li>
+</template>
+
+
+<template name="website_detail">
+    {{#if currentUser}}
+        {{> voting_buttons}}
+    {{/if}}
+    <h1><a href="{{url}}">{{title}}</a></h1>
+    <p>
+        {{description}}
+    </p>
+    {{#if currentUser}}
+        <form class="js-website-comment">
+            <div class="form-group">
+            <textarea class="form-control" id="comment"
+                      placeholder="Write here your opinion..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary js-click-me">Submit</button>
+        </form>
+    {{/if}}
+    <h4>Comments</h4>
+    {{#each comments}}
+        {{> comment}}
+    {{/each}}
+</template>
+
+
+<template name="voting_buttons">
+    <div class="pull-right">
+        {{ upvotes }} <a href="#" class="btn btn-default btn-xs js-upvote">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+    </a>
+        {{ downvotes }} <a href="#" class="btn btn-default btn-xs js-downvote">
+        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+    </a>
+    </div>
+</template>
+
+
+<template name="comment">
+    <div class="">
+        {{#if gravatar_img}}
+            <span class="pull-left" style="padding: 5px;"><img src="{{gravatar_img}}" style="width: 32px;"></span>
+        {{/if}}
+        <b>{{ author }}</b> <span>{{createdOn}}</span>
+        <p>{{ comment }}</p>
+    </div>
+</template>
