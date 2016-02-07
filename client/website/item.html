@@ -4,7 +4,8 @@
         {{#if currentUser}}
             {{> voting_buttons}}
         {{/if}}
-        <h4><a href="{{url}}">{{title}}</a></h4>
+        <h4 style="margin-bottom: 0px; margin-top: 20px;"><a href="{{url}}">{{title}}</a></h4>
+        <div><a href="{{url}}" style="color: darkgreen;">{{url}}</a></div>
         <p>
             {{description}} <a href="/website/{{_id}}">more...</a>
         </p>
@@ -13,6 +14,8 @@
 
 
 <template name="website_detail">
+    <a href="/">Home</a>
+
     {{#if currentUser}}
         {{> voting_buttons}}
     {{/if}}

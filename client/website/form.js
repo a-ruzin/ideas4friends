@@ -4,9 +4,16 @@ Template.website_form.events({
     },
     "submit .js-save-website-form": function (event) {
 
-        // here is an example of how to get the url out of the form:
         var url = event.target.url.value;
-        console.log("The url they entered is: " + url, Meteor.user()._id);
+
+        if (!url.match(/^https?:\/\//)) {
+            $.bootstrapGrowl('bad url: '+url, {
+                type: 'danger',
+                align: 'right',
+                delay: 5000
+            });
+            return false;
+        }
 
         var voters = {};
         voters[Meteor.user()._id] = 1;
